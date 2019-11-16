@@ -1,0 +1,133 @@
+/*---------------------------------*/
+/*         BASIC SETUP             */
+/*----------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #ffffff; 
+    color: #555555;
+    font-family: 'Montserrat', 'Arial', sans-serif; /*if no lato or arialany from sans serif*/ 
+    font-weight: 300; /*from picked google font-default*/
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+
+/*-------------------------*/
+/*       HEADINGS          */
+/*-------------------------*/
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+
+
+h1 {
+    margin: 0, 4px; /*because of normalize.css needs to remove white space */
+    color: #fff;
+}
+
+h1 i {
+    color: #00749c;
+}
+
+/*-------------------------*/
+/*      BUTTONS            /*
+/*--------------------------*/
+
+.btn:link,
+.btn:visited,
+input[type=submit] { /*button link and visited will look the same-below*/
+    display: inline-block; /*want to make block from inlin element so can have padding*/
+    padding:10px 30px;
+    font-weight: 300;
+    text-decoration: none; /*bez underline*/
+    border-radius: 200px; /*want to btn box be round*/
+    transition: background-color 0.2s, border 0.2s, color 0.2s; /*want a small transition from main color (link/vidsited) to (hover, active)*/
+}
+
+.btn-full:link,
+.btn-full:visited, 
+input[type=submit] { /*flatuicolors.com*/
+    background-color: #00749c;
+    border: 1px solid #00749c; /*also make border here so both btn box same size*/
+    color: #fff; /*color of font*/
+    margin-right: 15px;/*want to separate 2 btns-not to be glued together*/
+}
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #00749c; /*make 1px orange border*/
+    color: #fff;
+
+}
+
+.btn:hover,
+.btn.active,
+input[type=submit]:hover,
+input[type=submit]:active { /*want:dark orange when clicked 0to255.com*/
+    background-color: #0989b4;
+}
+
+
+/*--------------------------*/
+/*        HEADER            */
+/*--------------------------*/
+
+header {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(img/new\ hero.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 50%; /*50% from top*/
+    left: 50%; /*50% from left, but its more into right so..*/
+    transform: translate(-50%, -50%); /*-50% from whole width so its in the center*/
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.main-nav { /*odnosi s ena ul*/
+    float: right;
+    list-style: none; /*without boolet points*/
+    margin-top: 50px;
+    margin-right: 9px;
+}
+
+.main-nav li {
+    display: inline-block; /*ne block već jedan uz drugi*/
+    margin-left: 40px;
+}
+
+.main-nav li a:link, /*nav on normal state*/
+.main-nav li a:visited {
+    padding: 8px 0; /*BEZ ZAREZAspace between line and text tb/lr*/
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%; /*base font is 20px and I wnat 18px so 18/20= 0,9 or 90% no pixels*/
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s /*tranzicija bordera*/s
+}
+
+.main-nav li a:hover, /*kada kliknem želim da se pojavi orange border bottom*/
+.main-nav li a:active {
+    border-bottom: 2px solid #00749c; /*it first needs to be present above and transparent*/
+}
+
