@@ -17,6 +17,15 @@ html {
     text-rendering: optimizeLegibility;
 }
 
+.clearfix {zoom: 1} /*tu je da  uradi clear float u meals section-stavi u ul*/
+    .clearfix:after {
+        content:'.';
+        clear:both;
+        display:block;
+        height:0;
+        visibility: hidden;
+    }
+
 
 /*-------------------------*/
 /*       HEADINGS          */
@@ -44,11 +53,9 @@ h2 {
     margin-bottom: 40px;
     letter-spacing: 1px;
     font-weight: bold;
-}
-
-.section-services h2 {
     color: #0c0c0c;
 }
+
 
 
 h2:after { /*želim žutu liniju ispod h2*/
@@ -103,6 +110,24 @@ img { /*icons behave like a FONT*/
     margin-bottom: 20px;
     
 }
+
+/*------------------------------------------------*/
+/*           REUSABLE COMPONENTS                  */
+/*------------------------------------------------*/
+
+.row {
+    max-width: 1140px; /*only absolute with px I will use, all other relative/resp with percentage*/
+    margin: 0 auto 0 auto; /*all rows centered t, r, b, l*/
+}
+
+section {
+    padding: 80px 0; /*for white space between 1 page and second*/
+}
+
+.box {
+    padding: 1%; /*razmak do između texta i box bordera*/
+}
+
 
 /*-------------------------*/
 /*      BUTTONS            /*
@@ -207,6 +232,11 @@ header {
 
 .section-services {
     height: 100vh;
+    background-image: url(img/wordpress-logo-png-white-8.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    margin-bottom: 100px;
 }
 
 .section-services .long-copy {
@@ -217,3 +247,52 @@ header {
     margin-top: 10px;
 }
 
+/*------------------------------------------------*/
+/*           SKILLS                            */
+/*------------------------------------------------*/
+
+.section-skills {
+    height: 100vh;
+    margin-top: 40px;
+}
+
+.skills-showcase-one {
+    list-style: none; /*no bulletpoints*/
+    width: 100%;
+    margin-top: 40px;
+}
+
+
+
+.skills-showcase-one li {
+    display: block;
+    float: left; /*da budu jedan uz drugi a ne ispod je rje block*/
+    width: 12.5%; /*jer je puni width 100%, pa 4 slike dodje 12%*/
+}
+
+.skills-showcase-two li {
+    display: block;
+    float: left; /*da budu jedan uz drugi a ne ispod je rje block*/
+    width: 25%; /*jer je puni width 100%, pa 4 slike dodje 25%*/
+}
+
+.skill-photo {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    background-color: #ffffff;/*jer želim da opacity bude 0.7 ili 70%* od crne boje da posvjetli*/
+
+}
+
+.skill-photo img {
+    width: 100%; /*same as container above*/
+    height: 100%;
+    transform: scale(1.15); /*slika će se povećati za 15%-želim uvećati i zatamniti da bi kasnije smanjio i posvjetlio kod hover*/ 
+                            /*problem: sada slike veće od containera 100% pa overflow:hidden*/
+    opacity: 0.7; /*posvjetliti pozadinu (crnu)*/
+    transition: transform 0.5s, opacity 0.5s;
+}                              
+.skill-photo img:hover {
+    transform: scale(1.03); /*back to normal 1, ali kada zoom out pojavi se mala bijela linija pa zato 1.03*/
+    opacity: 1; /*back to 1 or 100%*/
+}
